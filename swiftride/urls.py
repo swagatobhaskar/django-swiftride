@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', views.homeview, name='home'),      # residing at 'services' app
     path('about/', views.aboutview, name='about'),
-    path('services/', include('services.urls')),
+    path('', include('services.urls')),
     path('accounts/', include('accounts.urls')),
     path('contact/', include('contact.urls')),      # residing at 'contact' app
     # testing xhtml2pdf
