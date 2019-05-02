@@ -1,8 +1,6 @@
 from django.urls import path
 from . import views
 
-# ALL URLS START WITH 'SERVICES'
-
 urlpatterns=[
     path('all/', views.servicesview, name='services'),
     path('review/', views.reviewView, name='review'),
