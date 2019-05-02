@@ -19,8 +19,8 @@ from services import views
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
-#......
 from html2pdf.views import GeneratePdf
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', views.homeview, name='home'),      # residing at 'services' app
