@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django HTMLtoPDF Tutorial</title>
+<style>
+    @page {
+        size: A4 portrait;
+        @frame header_frame {           /* Static Frame */
+            -pdf-frame-content: header_content;
+            left: 50pt; width: 512pt; top: 20pt; height: 50pt;
+        }
+        @frame content_frame {
+            left: 50pt;
+            width: 512pt;
+            top: 70pt;
+            height: 240pt;
+        }
+
+        @frame footer_frame {           /* Static frame */
+            -pdf-frame-content: footer_content;
+            left: 50pt; width: 512pt; top: 320pt; height: 20pt;
+        }
+    }
+</style>
+</head>
+
+<body>
+  <!-- Content for Static Frame 'header_frame' -->
+  <div id="header_content">
+    <h1>SwiftRide booking invoice.</h1>
+  </div>
+
+  <div id="content_frame">
+    <br>
+    <strong>User id: </strong> {{ invoice.user.id }}<br>
+    <strong>Name: </strong>{{ invoice.user.first_name }} {{ invoice.user.last_name }}<br>
+    _________________________________________________<br><br>
+    <strong>Invoice id: </strong>{{ invoice.id }}<br>
+    <strong>Total deductable cost: </strong>{{ invoice.cost }}<br>
+    <strong>Total hours booked: </strong>{{ invoice.hours }}<br>
+    <strong>Reservation id: </strong>{{ invoice.reservation.id }}<br>
+    <strong>Date from: </strong>{{ invoice.reservation.date_from }}<br>
+    <strong>Time from: </strong>{{ invoice.reservation.time_from }}<br>
+    <strong>Date to: </strong>{{ invoice.reservation.date_to }}<br>
+    <strong>Time to: </strong>{{ invoice.reservation.time_to }}<br>
+    <strong>Time of booking: </strong>{{ invoice.reservation.booking_time }}<br>
+    <strong>Number on vehicle: </strong>{{ invoice.reservation.chosen_vehicle }}<br>
+    <strong>Destination: </strong>{{ invoice.reservation.destination }}<br>
+    <strong>Reserved from city: </strong>{{ invoice.reservation.city }}<br>
+    <strong>Area: </strong>{{ invoice.reservation.area }}<br>
+    <strong>Name of garage: </strong>{{ invoice.reservation.garage }}<br>
+    <strong>Car model : </strong>{{ invoice.vehicle.car_model.company }}  {{ invoice.vehicle.car_model.name }}<br>
+  </div>
+
+  <div id="footer_content">page 1 of 1</div>
+</body>
+</html>

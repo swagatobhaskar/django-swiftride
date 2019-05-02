@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}SwiftRide | Plans{% endblock %}
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/planpage.css' %}">
+</head>
+{% block content %}
+<br>
+  <div class="card-deck">
+  {% for p in plans %}
+      <div class="col-sm">
+        <div class="card text-white bg-dark mb-3 mx-auto" style="max-width: 23rem;">
+          <div class="card-header"><h1><p class="font-weight-bold text-success">{{ p.plan }}</p></h1></div>
+          <div class="card-body text-success">
+            <p class="font-weight-light">{{ p.details1 }}<br>{{ p.details2 }}</p>
+            <hr>
+            <p><strong>Plan duration:</strong> {{ p.duration }}</p>
+            <p><strong>One time fee:</strong> ${{ p.one_time_fee }}</p>
+            <p><strong>Hourly rate:</strong> ${{ p.hourly_rate }}</p>
+            <p><strong>Monthly rate:</strong> ${{ p.monthly_rate }}</p>
+            <p><strong>Daily rate:</strong> ${{ p.daily_rate }}</p>
+            <p><strong>Annual fee:</strong> ${{ p.annual_fee }}</p>
+          </div>
+        </div>
+      </div><br>
+  {% endfor %}
+</div>
+{% endblock %}

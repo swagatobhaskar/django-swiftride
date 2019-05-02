@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+<h1>Your card details:</h1>
+{% block content %}
+<br>
+<div class="btn-group" role="group" aria-label="Basic example">
+  <a href="{% url 'view_profile' %}" class="btn btn-secondary">Profile</a>
+  <a href="{% url 'show_selected_plan' %}" class="btn btn-secondary">Plan</a>
+  <a href="{% url 'saved_license' %}" class="btn btn-secondary">Driving license</a>
+  <a href="{% url 'show_saved_card' %}" class="btn btn-secondary disabled">Card</a>
+  <a href="{% url 'booking_history' %}" class="btn btn-secondary">History</a>
+</div>
+<br><br>
+{% for c in card %}
+<div class="card text-primary border-success mx-auto" style="width: 30rem;">
+  <div class="card-header"><h>Card details  
+     <a class="btn btn-primary" href="{% url 'edit_card' c.id %}" role="button">Change card details</a></h></div>
+    <div class="card-body">
+      <p class="card-text text-left"><strong>Card number: </strong>{{ c.card_no }}</p>
+      <p class="card-text text-left"><strong>Card holder's name: </strong>{{ c.cardholder_name }}</p>
+      <p class="card-text text-left"><strong>Card expiry date: </strong>{{ c.year_expires }}</p>
+    </div>
+</div>
+
+{% endfor %}
+{% endblock %}

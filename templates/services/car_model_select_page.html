@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+<head>
+  {% block title %}SwiftRide | models{% endblock %}
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+{% block content %}
+  <small class="text-muted">Showing available models in {{ g.name }} at {{ g.area }}</small><br><br>
+{% for model in models %}
+  <div class="card mb-3 mx-auto" style="width: 20rem;">
+    <div class="card-header">{{ model.company }}  {{ model.name }}</div>
+      <div class="card-body">
+        <a class="stretched-link" href="{% url 'allocate_car' model.name g.name %}" role="button"><img src="{{ model.photo.url }}" height="150"/></a>
+      </div>
+  </div>
+{% endfor %}
+{% endblock %}

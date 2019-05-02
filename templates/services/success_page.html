@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+<head>
+  {% block title %}SwiftRide | successful booking{% endblock %}
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+{% block content %}
+<br>
+<div class="alert alert-primary" role="alert">
+  <h1 class="lead">Reservation successful.</h1>
+</div>
+  {% for r in reserved %}
+  <div class="card mx-auto" style="width: 25rem;">
+    <div class="card-body">
+      Reservation id: {{ r.id }}<br>
+      Date from: {{ r.date_from }}<br>
+      Time from: {{ r.time_from }}<br>
+      Date to: {{ r.date_to }}<br>
+      Time to: {{ r.time_to }}<br>
+      Your destination: {{ r.destination }}<br>
+      Booked car number: {{ r.chosen_vehicle }}<br>
+      Time of booking: {{ r.booking_time }}<br>
+      Garage: {{ r.garage }}<br>
+      Your city: {{ r.city }}<br>
+      City area: {{ r.area }}<br>
+    </div>
+  </div>
+  <br>
+  <a class="btn btn-primary" href="{% url 'invoice' r.id %}" role="button">Continue</a><br>
+  {% endfor %}
+{% endblock %}
+<img src="{% static "images/car11.jpg" %}" height="300">

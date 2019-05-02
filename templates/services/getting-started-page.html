@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/getting-started.css' %}">
+  </head>
+{% block title %}Getting started{% endblock %}
+{% block content %}
+<div class="alert alert-primary">
+<h1><strong>Welcome to SwiftRide.</strong></h1>
+<h2 class="text-muted">This page guides you on everything you need to know to use our service.</h2></div><br>
+
+
+<h3>Opening an account.</h3>
+<p>You need to have a SwiftRide account to book cars. For first time users, simply Sign Up. After you sign-up, you will be immediately
+  redirected to fillup some more forms. These are:<br>
+1. Select a <a href="{% url 'plans' %}">plan<a>.<br>
+2. Complete your profile with more details about you.<br>
+3. Add your driving license details.<br>
+4. Add your debit/credit card for payment thorugh subscription basis.
+</p><br>
+
+<h3>Billing</h3>
+<p>As you are required to purchase a plan at the very begining, you are relieved from paying everytime you book a car. The 'one time fee' and
+  'monthly' fees are deducted based on the duration of your first payment. The car insurance and fuel price are included.</p><br>
+
+<h3>Avail a car</h3>
+<p>Available cars according to your choise of type and model are shown to you, for the garage you choose. After you book, keep the invoice safe.
+Visit the garage with the invoice, show it to the SwiftRide employee present there, and s/he will handover the key.</p><br>
+
+<h3>Returning the car</h3>
+<p>Keep note when you are about to run out of time. We don't yet have the facility to extend your reservation period.
+  Return the car to the same garage.</p><br>
+<h3>So many benefits</h3>
+<p>
+    Drive cars and vans at low hourly or daily rates - whichever you prefer<br>
+    A wide range of cars available 24/7<br>
+    Fuel, insurance and Congestion Charges are all included<br>
+    No maintenance, insurance or tax costs<br>
+    Save hundreds over car ownership<br>
+    Each car takes over 10 personally-owned vehicles off the road<br>
+    SwiftRide members saved over 49,000 tonnes of CO2 last year<br>
+    SwiftRide vehicles typically produce 29% less CO2 than the national average car
+</p>
+<h3>Cancelling my Reservation </h3>
+<p>T present we don't have the facility to cancel your reservation. Your money is non-refundable.</p><br>
+<h3>Keep it Clean (and no smoking!)</h3><br>
+<h3>Pets are not allowed</h3>
+{% endblock %}

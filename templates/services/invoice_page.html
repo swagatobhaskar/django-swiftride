@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+<head>
+  {% block title %}SwiftRide | Booking receipt{% endblock %}
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+{% block content %}
+<br><br>
+<div class="card mb-3 mx-auto" style="width: 20rem;">
+  <div class="card-body">
+  Total hours: {{ hours }}<br>
+  Total cost: {{ cost }}<br>
+  Car no: {{ prsv.chosen_vehicle }}<br>
+  <img src="{{ rcar.car_model.photo.url }}" height="100" alt="..."><br>
+</div>
+</div>
+  <a class="btn btn-primary" href="{% url 'pdf' %}" role="button"> complete invoice</a>
+{% endblock %}

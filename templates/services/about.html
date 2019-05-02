@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}SwiftRide | about{% endblock %}
+<head>
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+{% block content %}
+<br>
+<div class="row">
+    <div class="col">
+      <div class="card mb-3 mx-auto text-muted" style="width: 18rem;">
+        <div class="card-header">Swagato Bhaskar</div>
+        <div class="card-body"><img class="card-img-top" src="{% static "images/bhaskar.jpg" %}"></div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card mb-3 mx-auto text-muted" style="width: 18rem;">
+        <div class="card-header">Subham Das</div>
+        <div class="card-body"><img class="card-img-top" src="{% static "images/das.jpg" %}"></div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card mb-3 mx-auto text-muted" style="width: 18rem;">
+        <div class="card-header">Souvik Ghosh</div>
+        <div class="card-body"><img class="card-img-top" src="{% static "images/sen.jpg" %}"></div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card mb-3 mx-auto text-muted" style="width: 18rem;">
+        <div class="card-header">Sandip Malik</div>
+        <div class="card-body"><img class="card-img-top" src="{% static "images/malik.jpg" %}"></div>
+      </div>
+    </div>
+</div>
+{% endblock %}

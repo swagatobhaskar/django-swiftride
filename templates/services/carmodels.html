@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="alert alert-primary" role="alert">
+  <h1>All available car models:</h1>
+  <hr>
+  <p class="mb-0">Booking cost depends on fuel economy, hours, model.</p>
+  </div>
+  {% for model in mod %}
+    <div class="card card border-info mb-3 mx-auto" style="width: 18rem;">
+      <img class="card-img-top" src="{{ model.photo.url }}" alt="Card image cap">
+      <div class="card-body">
+        <p class="card-text"><em>{{ model.company }} {{ model.name }}</em><br><strong>Fuel economy: {{ model.mileage }}</strong></p>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}

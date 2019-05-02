@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    {% block title %}SwiftRide | Login{% endblock %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+{% block content %}
+<br><br>
+  <div class="card mx-auto" style="width: 28rem;">
+    <div class="card-header"><strong>Login to your account</strong></div>
+    <div class="card-body">
+      <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        {% include 'includes/form.html' %}
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+      </form>
+      <p>Don't have an account? <a href="{% url 'signup' %}"><em>Signup</em></a></p>
+      <p><a href="{% url 'password_reset' %}">Forget password ?</a></p>
+    </div>
+  </div>
+{% endblock %}

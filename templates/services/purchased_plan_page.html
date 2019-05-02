@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<div class="btn-group" role="group" aria-label="Basic example">
+  <a href="{% url 'view_profile' %}" class="btn btn-secondary">Profile</a>
+  <a href="{% url 'show_selected_plan' %}" class="btn btn-secondary disabled">Plan</a>
+  <a href="{% url 'saved_license' %}" class="btn btn-secondary">Driving license</a>
+  <a href="{% url 'show_saved_card' %}" class="btn btn-secondary">Card</a>
+  <a href="#" class="btn btn-secondary">History</a>
+</div>
+<br><br>
+
+{% for b in by %}
+  <div class="card text-primary border-success mx-auto" style="width: 30rem;">
+    <div class="card-header"><h>Your Purchased Plan</div>
+      <div class="card-body">
+        <p class="card-text text-left"><strong>Name: </strong>{{ b.driving_plans }}</p>
+        <p class="card-text text-left"><strong>Start date: </strong>{{ b.start_date }}</p>
+        <p class="card-text text-left"><strong>End date: </strong>{{ b.end_date }}</p>
+      </div>
+  </div>
+{% endfor %}
+{% endblock %}

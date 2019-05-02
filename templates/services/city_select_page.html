@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}SwiftRide | City{% endblock %}
+{% block content %}
+<br><br>
+<div class="card card border-info mb-3 mx-auto" style="width: 40rem;">
+  <div class="card-header">Select the city you are in</div>
+    <div class="card-body text-primary">
+      {% for city in cities %}
+        <ul class="list-group">
+          <a href="{% url 'select_area' city.city_name %}" class="list-group-item list-group-item-action">{{ city.city_name }}</a>
+        </ul>
+      {% endfor %}
+    </div>
+</div>
+{% endblock %}

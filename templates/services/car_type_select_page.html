@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+<head>
+  {% block title %}SwiftRide | select a car type{% endblock %}
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+{% block content %}
+<br>
+  <p>Showing available types of vehicle in: {{garage.name}}</p>
+  {% for t in type %}
+  <div class="card card border-secondary mb-3 mx-auto" style="width: 20rem;">
+    <div class="card-header">{{ t.name }}</div>
+    <div class="card-body">
+     <img src="{{ t.photo.url }}" height="100"/><br>
+     <div class="card-footer">
+      <a class="btn btn-primary stretched-link" href="{% url 'select_model' garage.name t.name %}">Select</a>
+     </div>
+    </div>
+  </div>
+  {% endfor %}
+{% endblock %}

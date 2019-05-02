@@ -1,0 +1,14 @@
+body {
+  background-color: LightBlue;
+}
+
+h1 {
+  color: DodgerBlue;
+  /* margin-left: 100px; */
+  text-align: center;
+}
+@media (min-width: 992px) {
+  .container{
+        max-width: 700px;
+      }
+  }

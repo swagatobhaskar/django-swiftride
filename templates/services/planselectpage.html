@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}SwiftRide | Plan selection{% endblock %}
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/planpage.css' %}">
+</head>
+{% block content %}
+<br>
+<div class="card-deck">
+  {% for pl in plan %}
+  <div class="col-sm">
+    <div class="card text-white bg-dark mb-3 mx-auto" style="max-width: 23rem;">
+      <div class="card-header"><h1><p class="font-weight-bold text-success">{{ pl.plan }}</p></h1></div>
+        <div class="card-body text-success">
+          <p class="font-weight-light">{{ pl.details1 }}<br>{{ pl.details2 }}</p>
+          <hr>
+          <p><strong>Plan duration:</strong> {{ pl.duration }}</p>
+          <p><strong>One time fee:</strong> ${{ pl.one_time_fee }}</p>
+          <p><strong>Hourly rate:</strong> ${{ pl.hourly_rate }}</p>
+          <p><strong>Monthly rate:</strong> ${{ pl.monthly_rate }}</p>
+          <p><strong>Daily rate:</strong> ${{ pl.daily_rate }}</p>
+          <p><strong>Annual fee:</strong> ${{ pl.annual_fee }}</p>
+          <hr>
+          <a class="btn btn-success" href="{% url 'selected_plan' pl.id %}" role="button">Select this plan</a>
+        </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{% endblock %}

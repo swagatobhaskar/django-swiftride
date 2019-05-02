@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+<head>
+  <title>{% block title %}Contact{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+{% block content %}
+  {% block contact %}
+  <br><br>
+    <div class="card mx-auto" style="width: 32rem;">
+      <div class="card-header">
+        <div class="alert alert-dark" role="alert"><strong>Contact Us</strong></div>
+      </div>
+        <div class="card-body text-secondary">
+          <form action="" method="POST" novalidate>
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}">
+            {% include 'includes/form.html' %}
+            <button type="submit" class="btn btn-secondary">Submit</button>
+          </form>
+        </div>
+      </div>
+  {% endblock %}
+{% endblock %}

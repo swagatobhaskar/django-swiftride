@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}SwiftRide | home{% endblock %}
+<head>
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+{% block content %}
+    <img src="{% static "images/car11.jpg" %}" alt="Responsive image" height="500" width="1110"><br><br>
+    {% if not user.is_authenticated %}
+      <p class="lead">Have an account? &mdash;
+      <a class="btn btn-primary" href="{% url 'signup' %}" role="button"><strong>Sign up</strong></a> or
+      <a class="btn btn-outline-primary" href="{% url 'login' %}" role="button">Log in</a></p>
+    {% endif %}
+    <a class="btn btn-success" href="{% url 'select_city' %}" role="button">Book a car</a>
+{% endblock %}

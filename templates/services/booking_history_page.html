@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block title %}Booking History{% endblock %}
+<head>
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/booking_history.css' %}">
+</head>
+<h1>Your booking history:</h1>
+{% block content %}
+<br>
+
+<div class="btn-group" role="group" aria-label="Basic example">
+  <a href="{% url 'view_profile' %}" class="btn btn-secondary">Profile</a>
+  <a href="{% url 'show_selected_plan' %}" class="btn btn-secondary">Plan</a>
+  <a href="{% url 'saved_license' %}" class="btn btn-secondary">Driving license</a>
+  <a href="{% url 'show_saved_card' %}" class="btn btn-secondary">Card</a>
+  <a href="{% url 'booking_history' %}" class="btn btn-secondary disabled">History</a>
+</div>
+
+<br><br>
+<div class="align">
+<table class="table table-striped table-bordered">
+  <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>Date from - Date to</th>
+        <th>Time from - Time to</th>
+        <th>Car no.</th>
+        <th>Garage</th>
+        <th>Destination</th>
+      </tr>
+  </thead>
+  <tbody>
+    {% for r in rsv %}
+      <tr>
+        <td>{{ r.id }}</td>
+        <td>{{ r.date_from }} - {{ r.date_to }}</td>
+        <td>{{ r.time_from }} - {{ r.time_to }}</td>
+        <td>{{ r.chosen_vehicle }}</td>
+        <td>{{ r.garage }}</td>
+        <td>{{ r.destination }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}

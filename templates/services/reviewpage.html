@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Booking Review{% endblock %}
+{% block content %}
+  <body>
+    <h1> <font color="green">NextStopLot booking.</font></h1>
+  </body>
+  {% if user.is_authenticated %}
+    <p><a href="{% url 'logout' %}">Logout</a></p>
+  {% endif %}
+
+{% endblock %}
